@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+  <head>
+    <title>GoogleMfaRailsDemo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.min.css" />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="h-full">
+    <div class="min-h-full">
+      <%= render :partial => "shared/navbar" if current_user.present? && params[:action] != "otp_code" %>
+      <%= render :partial => "shared/flash", locals: { notice: notice, alert: alert }  if notice.present? || alert.present? %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
