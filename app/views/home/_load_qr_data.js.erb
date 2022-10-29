@@ -1,0 +1,6 @@
+<% @codes = codes %>
+<% @qr_code = qr_code %>
+<% @otp_secret = otp_secret %>
+$('#media-details .modal-content').html("<%=  j render 'home/qr_code' %>");
+$('#media-details').modal("show");
+
